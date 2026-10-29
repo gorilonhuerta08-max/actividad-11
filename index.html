@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Ejercicios: Estructuras Repetitivas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #1a2a3a;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .card {
+            border: 1px solid #e0e0e0;
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #fafafa;
+        }
+        .card.intermedio {
+            border-left-color: #f39c12;
+        }
+        .card.desafios {
+            border-left-color: #e74c3c;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 200px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .output {
+            margin-top: 10px;
+            padding: 8px;
+            background: #eef7fc;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 1.05em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Guía de Ejercicios: Estructuras Repetitivas</h1>
+
+    <!-- BLOQUE A -->
+    <h2>Bloque A: Repetición con for</h2>
+    
+    <div class="section">
+        <h3>Nivel básico</h3>
+
+        <div class="card">
+            <strong>E1. Contar del 1 al N</strong>
+            <label>Número N:</label>
+            <input type="number" id="e1_n" value="10">
+            <button onclick="ejecutarE1()">Ejecutar</button>
+            <div class="output" id="out_e1">Resultado...</div>
+        </div>
+
+        <div class="card">
+            <strong>E2. Cuenta regresiva de N a 1</strong>
+            <label>Número N:</label>
+            <input type="number" id="e2_n" value="5">
+            <button onclick="ejecutarE2()">Ejecutar</button>
+            <div class="output" id="out_e2">Resultado...</div>
+        </div>
+
+        <div class="card">
+            <strong>E3. Números pares entre 2 y N</strong>
+            <label>Número N:</label>
+            <input type="number" id="e3_n" value="12">
+            <button onclick="ejecutarE3()">Ejecutar</button>
+            <div class="output" id="out_e3">Resultado...</div>
+        </div>
+
+        <div class="card">
+            <strong>E4. Múltiplos de 3 entre 1 y 50</strong>
+            <button onclick="ejecutarE4()">Ejecutar</button>
+            <div class="output" id="out_e4">Resultado...</div>
+        </div>
+
+        <div class="card">
+            <strong>E5. Suma 1 + 2 + ... + N</strong>
+            <label>Número N:</label>
+            <input type="number" id="e5_n" value="10">
+            <button onclick="ejecutarE5()">Ejecutar</button>
+            <div class="output" id="out_e5">Resultado...</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Nivel intermedio</h3>
+
+        <div class="card intermedio">
+            <strong>E6. Contar pares entre A y B</strong>
+            <label>Número A:</label>
+            <input type="number" id="e6_a" value="3">
+            <label>Número B:</label>
+            <input type="number" id="e6_b" value="10">
+            <button onclick="ejecutarE6()">Ejecutar</button>
+            <div class="output" id="out_e6">Resultado...</div>
+        </div>
+
+        <div class="card intermedio">
+            <strong>E7. Potencia sin Math.pow ni **</strong>
+            <label>Base:</label>
+            <input type="number" id="e7_base" value="2">
+            <label>Exponente:</label>
+            <input type="number" id="e7_exp" value="4">
+            <button onclick="ejecutarE7()">Ejecutar</button>
+            <div class="output" id="out_e7">Resultado...</div>
+        </div>
+
+        <div class="card intermedio">
+            <strong>E8. Suma de dígitos</strong>
+            <label>Número:</label>
+            <input type="number" id="e8_num" value="1234">
+            <button onclick="ejecutarE8()">Ejecutar</button>
+            <div class="output" id="out_e8">Resultado...</div>
+        </div>
+
+        <div class="card intermedio">
+            <strong>E9. Factorial N!</strong>
+            <label>Número N:</label>
+            <input type="number" id="e9_n" value="5">
+            <button onclick="ejecutarE9()">Ejecutar</button>
+            <div class="output" id="out_e9">Resultado...</div>
+        </div>
+    </div>
+
+    <h2>Bloque B: Repetición con while y do-while</h2>
+
+    <div class="section">
+        <h3>Nivel básico y ejercicios interactivos (con Prompt/Alert)</h3>
+
+        <div class="card">
+            <strong>E10. Contar del 1 al N con while</strong>
+            <label>Número N:</label>
+            <input type="number" id="e10_n" value="8">
+            <button onclick="ejecutarE10()">Ejecutar</button>
+            <div class="output" id="out_e10">Resultado...</div>
+        </div>
+
+        <div class="card">
+            <strong>E11. Bucle con centinela (-1)</strong>
+            <button onclick="ejecutarE11()">Probar con Prompt</button>
+        </div>
+
+        <div class="card">
+            <strong>E12. Contraseña simple (1234)</strong>
+            <button onclick="ejecutarE12()">Probar con Prompt</button>
+        </div>
+
+        <div class="card">
+            <strong>E13. Menú interactivo (do-while)</strong>
+            <button onclick="ejecutarE13()">Probar con Prompt</button>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Nivel intermedio</h3>
+
+        <div class="card intermedio">
+            <strong>E14. Contraseña con máx. 3 intentos</strong>
+            <button onclick="ejecutarE14()">Probar con Prompt</button>
+        </div>
+
+        <div class="card intermedio">
+            <strong>E15. Promedio con centinela (-1)</strong>
+            <button onclick="ejecutarE15()">Probar con Prompt</button>
+        </div>
+
+        <div class="card intermedio">
+            <strong>E16. Número al revés</strong>
+            <label>Número:</label>
+            <input type="number" id="e16_num" value="1234">
+            <button onclick="ejecutarE16()">Ejecutar</button>
+            <div class="output" id="out_e16">Resultado...</div>
+        </div>
+    </div>
+
+    <h2>Desafíos</h2>
+
+    <div class="section">
+        <div class="card desafios">
+            <strong>E17. ¿Es número primo?</strong>
+            <label>Número N:</label>
+            <input type="number" id="e17_n" value="7">
+            <button onclick="ejecutarE17()">Ejecutar</button>
+            <div class="output" id="out_e17">Resultado...</div>
+        </div>
+
+        <div class="card desafios">
+            <strong>E18. Juego Adivina el Número</strong>
+            <button onclick="ejecutarE18()">Jugar con Prompt</button>
+        </div>
+
+        <div class="card desafios">
+            <strong>E19. Serie de Fibonacci (primeros N términos)</strong>
+            <label>Número N:</label>
+            <input type="number" id="e19_n" value="8">
+            <button onclick="ejecutarE19()">Ejecutar</button>
+            <div class="output" id="out_e19">Resultado...</div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function ejecutarE1() {
+        let n = parseInt(document.getElementById('e1_n').value);
+        let res = "";
+        for (let i = 1; i <= n; i++) {
+            res += i + " ";
+        }
+        document.getElementById('out_e1').innerText = res;
+    }
+
+    function ejecutarE2() {
+        let n = parseInt(document.getElementById('e2_n').value);
+        let res = "";
+        for (let i = n; i >= 1; i--) {
+            res += i + " ";
+        }
+        document.getElementById('out_e2').innerText = res;
+    }
+
+    function ejecutarE3() {
+        let n = parseInt(document.getElementById('e3_n').value);
+        let res = "";
+        for (let i = 2; i <= n; i += 2) {
+            res += i + " ";
+        }
+        document.getElementById('out_e3').innerText = res;
+    }
+
+    function ejecutarE4() {
+        let res = "";
+        for (let i = 1; i <= 50; i++) {
+            if (i % 3 === 0) res += i + " ";
+        }
+        document.getElementById('out_e4').innerText = res;
+    }
+
+    function ejecutarE5() {
+        let n = parseInt(document.getElementById('e5_n').value);
+        let suma = 0;
+        for (let i = 1; i <= n; i++) {
+            suma += i;
+        }
+        document.getElementById('out_e5').innerText = "Suma total: " + suma;
+    }
+
+    function ejecutarE6() {
+        let a = parseInt(document.getElementById('e6_a').value);
+        let b = parseInt(document.getElementById('e6_b').value);
+        let inicio = Math.min(a, b);
+        let fin = Math.max(a, b);
+        let contador = 0;
+        for (let i = inicio; i <= fin; i++) {
+            if (i % 2 === 0) contador++;
+        }
+        document.getElementById('out_e6').innerText = "Cantidad de pares: " + contador;
+    }
+
+    function ejecutarE7() {
+        let base = parseInt(document.getElementById('e7_base').value);
+        let exp = parseInt(document.getElementById('e7_exp').value);
+        let res = 1;
+        for (let i = 0; i < exp; i++) {
+            res *= base;
+        }
+        document.getElementById('out_e7').innerText = "Resultado: " + res;
+    }
+
+    function ejecutarE8() {
+        let num = Math.abs(parseInt(document.getElementById('e8_num').value));
+        let suma = 0;
+        for (; num > 0; num = Math.floor(num / 10)) {
+            suma += num % 10;
+        }
+        document.getElementById('out_e8').innerText = "Suma de dígitos: " + suma;
+    }
+
+    function ejecutarE9() {
+        let n = parseInt(document.getElementById('e9_n').value);
+        let fact = 1;
+        for (let i = 1; i <= n; i++) {
+            fact *= i;
+        }
+        document.getElementById('out_e9').innerText = "Factorial: " + fact;
+    }
+
+    function ejecutarE10() {
+        let n = parseInt(document.getElementById('e10_n').value);
+        let i = 1;
+        let res = "";
+        while (i <= n) {
+            res += i + " ";
+            i++;
+        }
+        document.getElementById('out_e10').innerText = res;
+    }
+
+    function ejecutarE11() {
+        let suma = 0;
+        let num = parseInt(prompt("E11 - Ingrese un número (-1 para salir):"));
+        while (num !== -1 && !isNaN(num)) {
+            suma += num;
+            num = parseInt(prompt("E11 - Ingrese un número (-1 para salir):"));
+        }
+        alert("La suma de los números ingresados es: " + suma);
+    }
+
+    function ejecutarE12() {
+        let pass = prompt("E12 - Ingrese la contraseña:");
+        while (pass !== "1234") {
+            pass = prompt("Contraseña incorrecta. Intente de nuevo:");
+        }
+        alert("¡Acceso concedido!");
+    }
+
+    function ejecutarE13() {
+        let opcion;
+        do {
+            opcion = parseInt(prompt("E13 - Menú:\n1. Saludar\n2. Despedir\n3. Salir"));
+            if (opcion === 1) alert("¡Hola!");
+            else if (opcion === 2) alert("¡Chao!");
+            else if (opcion !== 3) alert("Opción no válida");
+        } while (opcion !== 3);
+    }
+
+    function ejecutarE14() {
+        let intentos = 3;
+        let pass = "";
+        while (intentos > 0 && pass !== "1234") {
+            pass = prompt(`E14 - Ingrese la contraseña (Intentos restantes: ${intentos}):`);
+            if (pass !== "1234") intentos--;
+        }
+        if (pass === "1234") alert("¡Acceso concedido!");
+        else alert("Cuenta bloqueada.");
+    }
+
+    function ejecutarE15() {
+        let suma = 0;
+        let cant = 0;
+        let num = parseInt(prompt("E15 - Ingrese un número (-1 para terminar):"));
+        while (num !== -1 && !isNaN(num)) {
+            suma += num;
+            cant++;
+            num = parseInt(prompt("E15 - Ingrese un número (-1 para terminar):"));
+        }
+        if (cant > 0) alert("El promedio es: " + (suma / cant));
+        else alert("No se ingresaron datos.");
+    }
+
+    function ejecutarE16() {
+        let num = Math.abs(parseInt(document.getElementById('e16_num').value));
+        let invertido = 0;
+        let temp = num;
+        while (temp > 0) {
+            let digito = temp % 10;
+            invertido = (invertido * 10) + digito;
+            temp = Math.floor(temp / 10);
+        }
+        document.getElementById('out_e16').innerText = "Número al revés: " + invertido;
+    }
+
+    function ejecutarE17() {
+        let n = parseInt(document.getElementById('e17_n').value);
+        let esPrimo = true;
+        if (n <= 1) esPrimo = false;
+        else {
+            for (let i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i === 0) {
+                    esPrimo = false;
+                    break;
+                }
+            }
+        }
+        document.getElementById('out_e17').innerText = esPrimo ? (n + " ES primo.") : (n + " NO es primo.");
+    }
+
+    function ejecutarE18() {
+        let secreto = 42;
+        let intento = parseInt(prompt("E18 - Adivina el número secreto (entre 1 y 100):"));
+        while (intento !== secreto && !isNaN(intento)) {
+            if (intento < secreto) {
+                intento = parseInt(prompt("El número secreto es MAYOR. Intenta de nuevo:"));
+            } else {
+                intento = parseInt(prompt("El número secreto es MENOR. Intenta de nuevo:"));
+            }
+        }
+        if (intento === secreto) alert("¡Felicidades! Adivinaste el número 42.");
+    }
+
+    function ejecutarE19() {
+        let n = parseInt(document.getElementById('e19_n').value);
+        let a = 1, b = 1;
+        let res = "";
+        for (let i = 1; i <= n; i++) {
+            if (i === 1) res += a + " ";
+            else if (i === 2) res += b + " ";
+            else {
+                let sig = a + b;
+                a = b;
+                b = sig;
+                res += sig + " ";
+            }
+        }
+        document.getElementById('out_e19').innerText = res;
+    }
+</script>
+
+</body>
+</html>
